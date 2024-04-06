@@ -1,0 +1,517 @@
+/*
+Author: [Your Name]
+Purpose: This CSS file styles the SwinCloud website
+*/
+
+
+html,
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100% !important;
+    height: 100%;
+}
+
+p,
+h1,
+h2 {
+    margin: 0;
+}
+
+nav {
+    background-color: white;
+    color: black;
+    padding: 20px 0;
+}
+
+header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form {
+    padding: 20px 0 20px 0;
+}
+
+.form h2 {
+    text-align: center;
+}
+
+.button-form {
+    display: flex;
+}
+
+.button-form input {
+    flex: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="reset"] {
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin-right: 20px;
+}
+
+.menu ul li:last-child {
+    margin-right: 0;
+}
+
+.menu ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #ccc;
+}
+
+.button {
+    box-sizing: border-box;
+    margin-top: 25px;
+    border: 3px solid white;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000 !important;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.banner {
+    background-position: center;
+    background-size: cover;
+    background-image: url("./images/banner.jpg");
+}
+
+.welcome {
+    box-sizing: border-box;
+    padding: 30vh 50px 30vh 50px;
+}
+
+.welcome h1,
+.welcome p {
+    font-family: sans-serif;
+    color: white;
+}
+
+.welcome h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 4.3rem;
+    font-weight: 500;
+}
+
+.welcome p {
+    margin: 0;
+    line-height: 30px;
+    font-size: 1.3rem;
+}
+
+.button:hover {
+    border: 3px solid black;
+    background-color: blanchedalmond;
+}
+
+.about {
+    color: black;
+    padding: 30px 50px 30px 50px;
+}
+
+.about h2 {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+}
+
+.features {
+    margin: 10px 0 10px 0;
+    border-collapse: separate;
+    display: flex;
+}
+
+.features .key-features {
+    flex: 1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px 20px 15px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.features .key-features p,
+.service-list p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.large {
+    font-weight: bold;
+    font-size: 1.7rem !important;
+}
+
+.features .key-features i,
+.service-list section i {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+}
+
+.generic {
+    padding: 60px 60px 60px 60px;
+    box-sizing: content-box;
+    box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1),
+        0px -10px 10px rgba(0, 0, 0, 0.1), 10px 0px 10px rgba(0, 0, 0, 0.1),
+        -10px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service {
+    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./images/services/clouds.jpg");
+}
+
+.testimonials {
+    color: black;
+}
+
+.generic h2 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.generic h2 strong {
+    font-family: "Borel", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.service-list,
+.testimonial-list {
+    display: flex;
+}
+
+.service-list section {
+    flex: 1;
+    text-align: center;
+    background-color: rgb(45, 65, 99, 0.3);
+    border: 3px solid white;
+    margin: 0 15px 0 15px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.service-list section:hover {
+    background-color: rgb(45, 65, 99, 0.9);
+}
+
+.service-list img {
+    max-width: 100%;
+    margin-top: 50px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.testimonial {
+    flex: 1;
+    border: 2px solid rgb(17, 173, 224);
+    border-radius: 20px;
+    padding: 10px 20px 15px 20px;
+    margin: 10px 15px 0 15px;
+}
+
+footer {
+    color: #fff;
+    background-color: black;
+    padding: 20px 30px 20px 30px;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-sections {
+    display: flex;
+}
+.footer-section {
+    flex: 1;
+}
+
+.job {
+    padding: 10px 15px 20px 10px;
+}
+.recruit-talents {
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.jobs-list {
+    display: flex;
+}
+.jobs-list a {
+    text-align: center;
+    flex: 1;
+}
+
+.about-us {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 20px;
+}
+
+dl {
+    margin-bottom: 20px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-bottom: 10px;
+}
+
+figure {
+    margin-bottom: 20px;
+}
+
+figure img {
+    display: block;
+    margin: auto;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.person-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.person {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.person img {
+    display: block;
+    width: 100%;
+}
+
+aside {
+    float: right;
+    width: 20%;
+}
+
+aside img {
+    width: 100%;
+}
+.congrats {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.congrats-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.congrats-container .success {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+.congrats-container .failed {
+    margin-bottom: 10px;
+    color: #ee1e1e;
+}
+.congrats-container p {
+    color: #333;
+}
+
+.managing {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.manage-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.manage-form input[type="text"],
+.manage-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.manage-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.manage-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.result-table {
+    overflow: scroll;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result-table,
+.result-table th,
+.result-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.result-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    /* CSS rules for devices with width at least 600px */
+    .service-list, .testimonial-list {
+        display: block;
+    }
+    .service-list section {
+        flex: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .features {
+        display: block;
+    }
+
+    .welcome h1 {
+        font-size: 2.3rem;
+    }
+}
