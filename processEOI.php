@@ -184,18 +184,32 @@
                 };
             }
 
+            $job_table_result = $conn->query("SHOW TABLES LIKE 'jobs'");
+            $job_table_exists = $job_table_result->num_rows > 0;
+            if ($job_table_exists) {
+                $job_result = $conn->query("SELECT * FROM jobs WHERE Job_Reference_Number = '$job_reference'");
+                if ($job_result->num_rows == 0) {
+                    echo "<h1 class=\"failed\">Form Error</h1>";
+                    echo "<p>Job Reference Number not found. Please go to the <a href=\"jobs.php\">Jobs</a> page and enter an avaliable jobs.</p>";
+                    return;
+                };
 
-            $sql = "INSERT INTO eoi (Job_Reference_Number, First_Name, Last_Name, Date_of_Birth, Gender, Street_Address, Suburb_Town, State, Postcode, Email_Address, Phone_Number, Skills, Status) VALUES ('$job_reference', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$final_skills', 'New');";
+                $sql = "INSERT INTO eoi (Job_Reference_Number, First_Name, Last_Name, Date_of_Birth, Gender, Street_Address, Suburb_Town, State, Postcode, Email_Address, Phone_Number, Skills, Status) VALUES ('$job_reference', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$final_skills', 'New');";
 
-            if ($conn->query($sql) === TRUE) {
-                $eoi_number = $conn->insert_id;
-                echo "<h1 class=\"success\">Congratulation</h1><p>Your unique EOI number is: <strong>$eoi_number</strong></p>";
+                if ($conn->query($sql) === TRUE) {
+                    $eoi_number = $conn->insert_id;
+                    echo "<h1 class=\"success\">Congratulation</h1><p>Your unique EOI number is: <strong>$eoi_number</strong></p>";
+                } else {
+                    echo "<h1 class=\"failed\">Form Error</h1>" + "<p>Error: " . $sql . "<br>" . $conn->error + "</p>";
+                }
+    
+    
+                $conn->close();
             } else {
-                echo "<h1 class=\"failed\">Form Error</h1>" + "<p>Error: " . $sql . "<br>" . $conn->error + "</p>";
-            }
-
-
-            $conn->close();
+                echo "<h1 class=\"failed\">Form Error</h1>";
+                echo "<p>Currently there is no jobs for you to apply. Please check the <a href=\"jobs.php\">Jobs</a> page frequently</p>";
+                return;
+            };
         } else {
             echo "<h1 class=\"failed\">Form Error</h1>";
             foreach ($errors as $error) {

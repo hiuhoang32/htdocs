@@ -117,12 +117,11 @@
         } else if (isset($sql) && !empty($sql)) {
 
             $conn = connectMySQL();
-            $table_name = "eoi"; // Table name
-            $table_result = $conn->query("SHOW TABLES LIKE '$table_name'");
-            $table_exists = $table_result->num_rows > 0;
+            $eoi_table_result = $conn->query("SHOW TABLES LIKE 'eoi'");
+            $eoi_table_exists = $eoi_table_result->num_rows > 0;
 
-            if (!$table_exists) {
-                $sql_create_table = "CREATE TABLE eoi (
+            if (!$eoi_table_exists) {
+                $eoi_create_table = "CREATE TABLE eoi (
                     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
                     Job_Reference_Number VARCHAR(5) NOT NULL,
                     First_Name VARCHAR(20) NOT NULL,
@@ -139,12 +138,12 @@
                     Status ENUM('New', 'Current', 'Final') DEFAULT 'New'
                 )";
             
-                if ($conn->query($sql_create_table) !== TRUE) {
+                if ($conn->query($eoi_create_table) !== TRUE) {
                     echo "<h1 class=\"failed\">There was an error when creating the table. Please try again later.</h1>";
                     echo "<p>$sql</p>";
                     return;
                 };
-            }
+            };
             $result = $conn->query($sql);
             if ($conn->error) {
                 echo "<h1 class=\"failed\">There was an error with the query. Please try again later.</h1>";

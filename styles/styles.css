@@ -495,6 +495,10 @@ aside img {
     background-color: #4CAF50;
     color: white;
 }
+.ending-words {
+    display: block;
+    margin: 50px 50px 50px 50px;
+}
 
 @media screen and (max-width: 600px) {
     /* CSS rules for devices with width at least 600px */
@@ -513,5 +517,12 @@ aside img {
 
     .welcome h1 {
         font-size: 2.3rem;
+    }
+    .jobs-list {
+        display: block;
+    }
+    .jobs-list a {
+        display: block;
+        padding: 10px 20px 10px 20px;
     }
 }

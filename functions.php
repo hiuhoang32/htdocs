@@ -2,7 +2,7 @@
 function connectMySQL() {
     $host = "localhost"; 
     $user = "root"; 
-    $password = "passwordhardtoget"; 
+    $password = "password"; 
     $database = "swincloud"; 
     // Create a database connection
     $conn = new mysqli($host, $user, $password, $database);

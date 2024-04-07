@@ -11,101 +11,46 @@
 <body>
     <header id="header">
         <?php include 'navbar.inc'; ?>
+        <a>
+            <img width="1500" height="250" src="images/jobs/banner.jpg" alt="" title=" " /></a>
+        <h1 class="recruit-talents">SwinCloud Recruit Talents</h1>
+        <?php
+            include('functions.php');
+            $conn = connectMySQL();
+            $sql = "SELECT * FROM jobs";
+            $result = $conn->query($sql);
+            $fetched_result = [];
+            
+            if ($result->num_rows > 0) {
+                echo "<nav class=\"jobs-list\">";
+                while($row = $result->fetch_assoc()) {
+                    $fetched_result[] = $row; 
+                    echo "<a " . "href=\"#" . $row["Job_Reference_Number"] . "\">";
+                    echo $row["Job_Title"];
+                    echo "</a>";
+                };
+                echo "</nav>";
+            };
+        ?>
     </header>
-    <section class="job">
+    <?php
+        if (count($fetched_result) > 0) {
+            foreach ($fetched_result as $row) {
+                echo "<section class='job' id=\"" . $row["Job_Reference_Number"] . "\">";
+                echo "h2 id=\"" . $row["Job_Reference_Number"] . ">". $row["Job_Title"]. " (Job Reference: ". $row["Job_Reference_Number"]. ")</h2>";
+                echo $row["Job_Description"];
+                echo "</section>";
+                echo "<hr>";
+            }
+        } else {
+            echo "<div class=\"congrats-container\">";
+            echo "<h1 class=\"failed\">Job Empty</h1>";
+            echo "<p>Currently there is no jobs for you to apply. Please check the <a href=\"jobs.php\">Jobs</a> page frequently</p>";
+            echo "</div>";
+        }
+?>
+    <!-- <section class="job">
         <aside>
-            <figure>
-                <img src="images/jobs/software-developer.png" alt="Software Developer">
-                <figcaption>Software Developer Employees</figcaption>
-            </figure>
-
-        </aside>
-        <h2 id="softwaredeveloper">Software Developer (Job Reference: SD1)</h2>
-        <p>
-            We are seeking a highly skilled and experienced Software
-            Developer to join our dynamic team. The ideal candidate will
-            have a strong background in software development, with expertise
-            in one or more programming languages.
-        </p>
-        <p>Salary Range: $70,000 - $90,000</p>
-        <p>Position Reference Number: SD123</p>
-        <p>Position Title: Software Developer</p>
-        <p>Reports to: Chief Technology Officer</p>
-
-        <h3>Key Responsibilities:</h3>
-        <ul>
-            <li>
-                Develop high-quality software solutions based on technical
-                requirements
-            </li>
-            <li>
-                Collaborate with team members to design and implement
-                software features
-            </li>
-            <li>Write clean, maintainable, and efficient code</li>
-            <li>
-                Conduct code reviews and provide constructive feedback to
-                peers
-            </li>
-            <li>
-                Participate in agile development processes, including sprint
-                planning, stand-ups, and retrospectives
-            </li>
-            <li>
-                Troubleshoot and debug issues in existing software
-                applications
-            </li>
-            <li>
-                Stay up-to-date with emerging technologies and industry
-                trends
-            </li>
-        </ul>
-
-        <h3>Required Qualifications, Skills, Knowledge, and Attributes:</h3>
-        <h4>Essential:</h4>
-        <ul>
-            <li>
-                Bachelor's degree in Computer Science, Engineering, or
-                related field
-            </li>
-            <li>
-                Proven experience as a Software Developer, with at least 3
-                years of experience
-            </li>
-            <li>
-                Strong proficiency in one or more programming languages,
-                such as Java, Python, C++, etc.
-            </li>
-            <li>
-                Experience with software development tools and frameworks
-            </li>
-            <li>Excellent problem-solving and analytical skills</li>
-            <li>Ability to work independently and as part of a team</li>
-        </ul>
-        <h4>Preferable:</h4>
-        <ul>
-            <li>Experience with agile methodologies</li>
-            <li>Knowledge of database systems and SQL</li>
-            <li>
-                Experience with front-end technologies (HTML, CSS,
-                JavaScript)
-            </li>
-        </ul>
-
-        <p>
-            If you are passionate about software development and thrive in a
-            fast-paced environment, we want to hear from you! Please send
-            your resume and cover letter to <a href="mailto:doduylong@gmail.com">doduylong@gmail.com</a>.
-        </p>
-
-    </section>
-    <hr>
-    <section class="job">
-        <aside>
-            <figure>
-                <img src="images/jobs/dev-ops.webp" alt="DevOps Engineer">
-                <figcaption>DevOps Engineer Employees</figcaption>
-            </figure>
 
         </aside>
         <h2 id="devopsengineer">DevOps Engineer (Job Reference: DE1)</h2>
@@ -196,13 +141,14 @@
             </li>
         </ul>
 
-        <p>
+
+    </section> -->
+    <p class="ending-words">
             If you are passionate about building scalable and reliable
             infrastructure using automation and want to be part of a
             collaborative team, we would love to hear from you! Please send
             your resume and cover letter to <a href="mailto:doduylong@gmail.com">doduylong@gmail.com</a>.
-        </p>
-    </section>
+    </p>
     <?php include 'footer.inc'; ?>
 </body>
 
