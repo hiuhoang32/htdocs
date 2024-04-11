@@ -18,7 +18,7 @@
     <main class="congrats">
         <div class="congrats-container">
         <?php
-    include('functions.php');
+    include('settings.php');
 
     function sanitise_input($input)
     {
@@ -152,7 +152,13 @@
 
 
         if (empty($errors)) {
-            $conn = connectMySQL();
+            $conn = new mysqli($host, $user, $password, $database);
+
+            if ($conn->connect_error) {
+                echo "<h1 class=\"failed\">Database Error</h1>";
+                echo "<p>There was an error trying to connect to the database. Please try again later.</p>";
+                die("Connection failed: " . $conn->connect_error);
+            };
 
             $table_name = "eoi"; // Table name
             $result = $conn->query("SHOW TABLES LIKE '$table_name'");

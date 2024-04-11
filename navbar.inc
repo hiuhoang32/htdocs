@@ -8,6 +8,8 @@
                 <li><a href="about.php">About us</a></li>
                 <li><a href="jobs.php">Jobs</a></li>
                 <li><a href="apply.php">Apply</a></li>
+                <li><a href="manage.php">EOI Management</a></li>
+                <li><a href="phpenhancements.php">Job Management</a></li>
             </ul>
         </div>
     </div>

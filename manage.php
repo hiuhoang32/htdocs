@@ -43,7 +43,7 @@
             <input type="submit" value="Submit">
         </form>
         <?php
-        include('functions.php');
+        include('settings.php');
         $errors = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $action = $_POST['action'];
@@ -116,7 +116,13 @@
             }
         } else if (isset($sql) && !empty($sql)) {
 
-            $conn = connectMySQL();
+            $conn = new mysqli($host, $user, $password, $database);
+
+            if ($conn->connect_error) {
+                echo "<h1 class=\"failed\">Database Error</h1>";
+                echo "<p>There was an error trying to connect to the database. Please try again later.</p>";
+                die("Connection failed: " . $conn->connect_error);
+            };
             $eoi_table_result = $conn->query("SHOW TABLES LIKE 'eoi'");
             $eoi_table_exists = $eoi_table_result->num_rows > 0;
 
@@ -139,15 +145,15 @@
                 )";
             
                 if ($conn->query($eoi_create_table) !== TRUE) {
-                    echo "<h1 class=\"failed\">There was an error when creating the table. Please try again later.</h1>";
-                    echo "<p>$sql</p>";
+                    echo "<h1 class=\"failed\">Error Creating Table</h1>";
+                    echo "<p>Query: $sql</p>";
                     return;
                 };
             };
             $result = $conn->query($sql);
             if ($conn->error) {
-                echo "<h1 class=\"failed\">There was an error with the query. Please try again later.</h1>";
-                echo "<p>$sql</p>";
+                echo "<h1 class=\"failed\">Query Error</h1>";
+                echo "<p>Query: $sql</p>";
             };
             if (isset($result)) {
                 if ($action == 'delete_by_position' || $action == 'change_status') {

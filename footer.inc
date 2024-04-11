@@ -11,6 +11,8 @@
                     <li><a href="about.php">About us</a></li>
                     <li><a href="jobs.php">Jobs</a></li>
                     <li><a href="apply.php">Apply</a></li>
+                    <li><a href="manage.php">EOI Management</a></li>
+                    <li><a href="phpenhancements.php">Job Management</a></li>
                 </ul>
             </div>
             <div class="footer-contact footer-section">
@@ -22,6 +24,6 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2024 SwinCloud. All rights reserved.<br>Our video: https://www.youtube.com/watch?v=_zWMkrWsB8Q</p>
+        <p>&copy; 2024 SwinCloud. All rights reserved.<br>Our video: https://youtu.be/NP3u13dViyE</p>
     </div>
 </footer>
